@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import VideoJuego
 
-# Create your views here.
+def inicio(request):
+    return render (request, 'juegos/index.html')
 
 def juegos(request):
-    return HttpResponse("Bienvenido a la plataforma de videojuegos")
+    juegos = VideoJuego.objects.all()
+    return render (request, 'juegos/juegos.html', {'juegos': juegos})
