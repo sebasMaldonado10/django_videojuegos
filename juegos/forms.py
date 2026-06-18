@@ -9,3 +9,17 @@ class ResenaForm (forms.ModelForm):
             "videojuego",
             "comentario",
         ]
+
+class VideoJuegoForm (forms.ModelForm):
+    class Meta:
+        model = VideoJuego
+        fields = [
+            "titulo",
+            "descripcion",
+            "imagen",
+            "fecha_de_lanzamiento",
+            "categoria",
+            "modo_juego",
+            "modelo_negocio",
+            "desarrolladora",
+        ]
