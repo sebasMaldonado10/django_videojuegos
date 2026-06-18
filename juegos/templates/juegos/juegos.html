@@ -7,28 +7,39 @@
         <h1 class="font-xl flex justify-center text-5xl font-bold p-5">Titulo</h1>
         <h3 class="font-md flex justify-center text-lg font-semibold p-5">Contenido</h3>
     </div>
+    <a href="{% url 'crearJuego' %}" class="flex w-fit px-10 py-2 m-5 bg-orange-400 text-white rounded rounded-3xl hover:bg-orange-600">
+        Crear juego
+    </a>
     <section class="grid grid-cols-1 md:grid-cols-3 gap-6 m-3">
-        <!--busqueda y filtros-->
-
         <article class="border border-zinc-400 shadow-lg rounded-lg bg-white py-3">
             {% for juego in juegos %}
-                <div class="p-5">         
-                    <h4 class="font-bold flex justify-center bg-zinc-50 p-2 mb-5 rounded-md"> {{ juego.titulo }} </h4>
-                    <p>{{ juego.descripcion }}</p>
-                    <p><b>Lanzamiento:</b> {{ juego.fecha_de_lanzamiento }}</p>
+                {% if juego.activo%}
+                    <div class="p-5">         
+                        <h4 class="font-bold flex justify-center bg-zinc-50 p-2 mb-5 rounded-md"> {{ juego.titulo }} </h4>
+                        <p>{{ juego.descripcion }}</p>
+                        <p><b>Lanzamiento:</b> {{ juego.fecha_de_lanzamiento }}</p>
 
-                    {% if juego.imagen %}
-                        <img src="{{ juego.imagen.url }}" alt="Imagen del juego" class="w-full h-auto mt-3 rounded-md">
-                    {% else %}
-                        <p class="text-sm text-gray-500 mt-3">No hay imagen disponible</p>
-                    {% endif %}         
-                </div>
-                <div class="flex flex-col justify-between items-start gap-1 px-3 py-1">
-                    <a href="#" class="w-fit text-xs px-5 py-2 bg-orange-500 text-white rounded rounded-3xl hover:bg-orange-600">{{ juego.categoria }}</a>
-                    <a href="#" class="w-fit text-xs px-5 py-2 bg-orange-500 text-white rounded rounded-3xl hover:bg-orange-600">{{ juego.modo_juego }}</a>
-                    <a href="#" class="w-fit text-xs px-5 py-2 bg-orange-500 text-white rounded rounded-3xl hover:bg-orange-600">{{ juego.modelo_negocio }}</a>
-                    <a href="#" class="w-fit text-xs px-5 py-2 bg-orange-500 text-white rounded rounded-3xl hover:bg-orange-600">{{ juego.desarrolladora }}</a>
-                </div>
+                        {% if juego.imagen %}
+                            <img src="{{ juego.imagen.url }}" alt="Imagen del juego" class="w-full h-auto mt-3 rounded-md">
+                        {% else %}
+                            <p class="text-sm text-gray-500 mt-3">No hay imagen disponible</p>
+                        {% endif %}         
+                    </div>
+                    <div class="flex flex-col justify-between items-start gap-1 px-3 py-1">
+                        <a href="#" class="w-fit text-xs px-5 py-2 bg-zinc-500 text-white rounded rounded-3xl hover:bg-orange-600">{{ juego.categoria }}</a>
+                        <a href="#" class="w-fit text-xs px-5 py-2 bg-zinc-500 text-white rounded rounded-3xl hover:bg-orange-600">{{ juego.modo_juego }}</a>
+                        <a href="#" class="w-fit text-xs px-5 py-2 bg-zinc-500 text-white rounded rounded-3xl hover:bg-orange-600">{{ juego.modelo_negocio }}</a>
+                        <a href="#" class="w-fit text-xs px-5 py-2 bg-zinc-500 text-white rounded rounded-3xl hover:bg-orange-600">{{ juego.desarrolladora }}</a>
+                    </div>
+                    <div class="flex gap-3 m-2 justify-end">
+                        <a href="{% url 'editarJuego' juego.id %}" class="flex w-fit p-2 rounded-lg bg-zinc-200">
+                        Editar
+                        </a>
+                        <a href="{% url 'borrarJuego' juego.id %}" class="flex w-fit p-2 rounded-lg bg-red-200">
+                            Borrar
+                        </a>
+                    </div>
+                {% endif %}
             {% endfor %}
         </article>
     </section>
