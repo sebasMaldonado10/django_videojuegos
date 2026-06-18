@@ -67,6 +67,7 @@ class VideoJuego(models.Model):
         on_delete=models.CASCADE,
         related_name='videojuegos'
     )
+    activo = models.BooleanField(default=True)
 
     def __str__(self):
         return f"videojuego {self.titulo}"
@@ -85,6 +86,7 @@ class Resena(models.Model):
     )
     fecha = models.DateField(auto_now_add=True)
     comentario = models.TextField()
+    activo = models.BooleanField(default=True)
 
     def __str__(self):
         return f"resena {self.usuario.username}"
