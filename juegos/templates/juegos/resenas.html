@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+
+{% block title %} Reseñas {% endblock %}
+
+{% block body %} 
+    <div class="p-5">
+        <h1 class="font-xl flex justify-center text-5xl font-bold p-5">Reseñas</h1>
+        {% for resena in resenas %}
+            {% if resena %}
+                <div class="border border-zinc-400 shadow-lg rounded-lg bg-white p-3 mb-3">
+                    <p><b>{{ resena.usuario }}</b> - {{ resena.fecha }}</p>
+                    <p><b>Juego:</b> {{ resena.videojuego }} </p>
+                    <p>{{ resena.comentario }}</p>
+                </div>
+            {% else %}
+                <p class="text-sm text-gray-500">No hay reseñas disponibles.</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
