@@ -53,7 +53,7 @@ Si querés correr el proyecto en tu máquina, seguí estos pasos:
 
 1. **Clonar el repositorio:**
 ```bash
-   git clone <URL_DEL_REPOSITORIO>
+   git clone git@github.com:sebasMaldonado10/django_videojuegos.git
    cd plataforma_videojuegos
 ```
 2. **Crear y activar el entorno virtual:**
