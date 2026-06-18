@@ -13,15 +13,15 @@ def juegos(request):
 ###CRUD modelo resena
 
 #Create
-"""
 def CrearResena(request):
     if request.method == 'POST':
         form = ResenaForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('resena')
-    return render (request, 'template', {'': })
-"""
+            return redirect('resenas')
+    else:
+        form = ResenaForm()
+    return render (request, 'juegos/crear_resena.html', {'form': form})
 
 #Read
 def resenas(request):

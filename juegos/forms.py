@@ -7,6 +7,5 @@ class ResenaForm (forms.ModelForm):
         fields = [
             "usuario",
             "videojuego",
-            'fecha'
             "comentario",
         ]
