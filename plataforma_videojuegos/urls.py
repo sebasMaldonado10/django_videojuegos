@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('juegos.urls')),
+    path("cuentas/",include("django.contrib.auth.urls"))
 ]
 
 # Agregamos esto para las imagenes
