@@ -63,11 +63,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'juegos.context_processors.datos_globales',
+
             ],
         },
     },
 ]
 
+LOGIN_URL = '/cuentas/login/'
 LOGIN_REDIRECT_URL = 'inicio'
 LOGOUT_REDIRECT_URL = 'inicio'
 
