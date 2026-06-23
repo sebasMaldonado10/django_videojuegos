@@ -11,4 +11,5 @@ urlpatterns = [
     path('nuevoJuego/', views.crearJuego, name='crearJuego'),
     path('editarJuego/<int:id>/', views.editarJuego, name='editarJuego'),
     path('borrarJuego/<int:id>/', views.borrarJuego, name='borrarJuego'),
+    path("register", views.registrarse, name="register")
 ]

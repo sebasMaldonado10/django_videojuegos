@@ -1,5 +1,8 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+
 # Register your models here.
+
 
 from .models import (
     UsuarioPersonalizado,
@@ -10,55 +13,59 @@ from .models import (
     VideoJuego,
     Resena
 )
-admin.site.register(Categoria)
-admin.site.register(ModoJuego)
-admin.site.register(ModeloNegocio)
-admin.site.register(Desarrolladora)
 
 @admin.register(UsuarioPersonalizado)
-class UsuarioPersonalizadoAdmin (admin.ModelAdmin):
-    list_display = (
-        "id",
-        "password",
-        "last_login",
-        "is_superuser",
-        "username",
-        "first_name",
-        "last_name",
-        "email",
-        "is_staff",
-        "is_active",
-        "date_joined",
-        "telefono",
-        "foto_perfil",
-    )
+class UsuarioPersonalizadoAdmin(UserAdmin):
+    list_display = ("username", "email", "is_staff", "is_active")
+    search_fields = ("username", "email")
+    list_filter = ("is_staff", "is_active", "groups")
+    ordering = ("username",)
+
+@admin.register(Categoria)
+class CategoriaAdmin(admin.ModelAdmin):
+    list_display = ("nombre",)
+    search_fields = ("nombre",)
+    ordering = ("nombre",)
+
+@admin.register(ModoJuego)
+class ModoJuegoAdmin(admin.ModelAdmin):
+    list_display = ("nombre",)
+    search_fields = ("nombre",)
+    ordering = ("nombre",)
+
+
+@admin.register(ModeloNegocio)
+class ModeloNegocioAdmin(admin.ModelAdmin):
+    list_display = ("nombre",)
+    search_fields = ("nombre",)
+    ordering = ("nombre",)
+
+
+@admin.register(Desarrolladora)
+class DesarrolladoraAdmin(admin.ModelAdmin):
+    list_display = ("nombre",)
+    search_fields = ("nombre",)
+    ordering = ("nombre",)
+
 
 @admin.register(VideoJuego)
-class VideoJuegoAdmin (admin.ModelAdmin):
+class VideoJuegoAdmin(admin.ModelAdmin):
     list_display = (
-        "id",
         "titulo",
-        "descripcion",
-        "imagen",
-        "fecha_de_lanzamiento",
         "categoria",
         "modo_juego",
         "modelo_negocio",
         "desarrolladora",
-        "activo",
+        "fecha_de_lanzamiento",
     )
-    list_filter = ("titulo","categoria",)
-    search_fields = ("titulo",)
+    search_fields = ("titulo", "descripcion")
+    list_filter = ("categoria", "modo_juego", "modelo_negocio", "desarrolladora")
+    ordering = ("titulo",)
+
 
 @admin.register(Resena)
-class ResenaAdmin (admin.ModelAdmin):
-    list_display = (
-        "id",
-        "usuario",
-        "videojuego",
-        "fecha",
-        "comentario",
-        "activo",
-    )
-    list_filter = ("videojuego",)
-    search_fields = ("videojuego",)
+class ResenaAdmin(admin.ModelAdmin):
+    list_display = ("usuario", "videojuego", "comentario")
+    search_fields = ("usuario__username", "videojuego__titulo", "comentario")
+    list_filter = ("videojuego", "usuario")
+    ordering = ("videojuego",)

@@ -1,16 +1,33 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import VideoJuego, Resena
-from .forms import ResenaForm, VideoJuegoForm
+from .forms import ResenaForm, VideoJuegoForm,RegistroForm
+from django.contrib.auth.decorators import login_required, permission_required
+
+from django.contrib.auth import login
+
 
 def inicio(request):
     return render (request, 'juegos/index.html')
 
+def registrarse(request):
+    if request.method == 'POST':
+        form = RegistroForm(request.POST)
+        if form.is_valid():
+            usuario = form.save()
+            login(request, usuario)
+            return redirect('inicio')
+    else:
+        form = RegistroForm()
+    return render(request, 'registration/register.html',{"form":form})
+
+
 ##### CRUD modelo videojuego #####
 
 #Create
+@permission_required('juegos.add_videojuego', raise_exception=True)
 def crearJuego(request):
     if request.method == 'POST':
-        form = VideoJuegoForm(request.POST)
+        form = VideoJuegoForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return redirect('juegos')
@@ -19,16 +36,18 @@ def crearJuego(request):
     return render (request, 'juegos/crear_juego.html', {'form': form})
 
 #Read
+@login_required
 def juegos(request):
     juegos = VideoJuego.objects.all()
     return render (request, 'juegos/juegos.html', {'juegos': juegos})
 
 #Update
+@permission_required('juegos.change_videojuego', raise_exception=True)
 def editarJuego(request, id):
     juego = get_object_or_404(VideoJuego, id=id)
 
     if request.method == 'POST':
-        form = VideoJuegoForm(request.POST, instance=juego)
+        form = VideoJuegoForm(request.POST, request.FILES, instance=juego)
         if form.is_valid():
             form.save()
             return redirect('juegos')
@@ -37,6 +56,7 @@ def editarJuego(request, id):
     return render (request, 'juegos/editar_juego.html', {'form': form})
 
 #Delete
+@permission_required('juegos.delete_videojuego', raise_exception=True)
 def borrarJuego(request, id):
     juego = get_object_or_404(VideoJuego, id=id)
 
@@ -49,6 +69,7 @@ def borrarJuego(request, id):
 ##### CRUD modelo resena #####
 
 #Create
+@permission_required('juegos.add_resena', raise_exception=True)
 def crearResena(request):
     if request.method == 'POST':
         form = ResenaForm(request.POST)
@@ -60,11 +81,13 @@ def crearResena(request):
     return render (request, 'juegos/crear_resena.html', {'form': form})
 
 #Read
+@login_required
 def resenas(request):
     resenas = Resena.objects.all()
     return render (request, 'juegos/resenas.html', {'resenas': resenas})
 
 #Update
+@permission_required('juegos.change_resena', raise_exception=True)
 def editarResena(request, id):
     resena = get_object_or_404(Resena, id=id)
 
@@ -78,6 +101,7 @@ def editarResena(request, id):
     return render (request, 'juegos/editar_resena.html', {'form': form})
 
 #Delete
+@permission_required('juegos.delete_resena', raise_exception=True)
 def borrarResena(request, id):
     resena = get_object_or_404(Resena, id=id)
 

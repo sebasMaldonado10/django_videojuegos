@@ -1,6 +1,9 @@
 from django import forms
 from .models import Resena, VideoJuego
 
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import get_user_model
+
 class ResenaForm (forms.ModelForm):
     class Meta:
         model = Resena
@@ -22,4 +25,16 @@ class VideoJuegoForm (forms.ModelForm):
             "modo_juego",
             "modelo_negocio",
             "desarrolladora",
+        ]
+
+Usuario = get_user_model()
+
+class RegistroForm(UserCreationForm):
+    class Meta:
+        model = Usuario
+        fields = [
+            "username",
+            "email",
+            "password1",
+            "password2",
         ]
