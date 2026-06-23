@@ -21,9 +21,9 @@
             </div>
 
             <div>
-                <a href="{% url 'inicio' %}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-zinc-600">Inicio</a>
-                <a href="{% url 'juegos' %}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-zinc-600">Juegos</a>
-                <a href="{% url 'resenas' %}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-zinc-600">Reseñas</a>
+                <a href="{% url 'inicio' %}" class="px-4 py-1.5 text-sm rounded-full text-white hover:bg-[#3C9B93] transition duration-200">Inicio</a>
+                <a href="{% url 'juegos' %}" class="px-4 py-1.5 text-sm rounded-full text-white hover:bg-[#3C9B93] transition duration-200">Juegos</a>
+                <a href="{% url 'resenas' %}" class="px-4 py-1.5 text-sm rounded-full text-white hover:bg-[#3C9B93] transition duration-200">Reseñas</a>
             </div>
 
 <div class="flex items-center gap-3">
@@ -34,15 +34,15 @@
 
         <form method="post" action="{% url 'logout' %}">
             {% csrf_token %}
-            <button type="submit" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-zinc-600">
+            <button type="submit" class="px-4 py-1.5 text-sm rounded-full text-white hover:bg-[#3C9B93] transition duration-200">
                 Cerrar sesión
             </button>
         </form>
     {% else %}
-        <a href="{% url 'login' %}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-zinc-600">
+        <a href="{% url 'login' %}" class="px-4 py-1.5 text-sm rounded-full text-white hover:bg-[#3C9B93] transition duration-200">
             Iniciar sesión
         </a>
-                <a href="{% url 'register' %}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-zinc-600">
+                <a href="{% url 'register' %}" class="px-4 py-1.5 text-sm rounded-full text-white hover:bg-[#3C9B93] transition duration-200">
             Registrarse
         </a>
     {% endif %}

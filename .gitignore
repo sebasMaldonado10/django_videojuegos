@@ -13,8 +13,6 @@ env/
 # Base de datos local
 db.sqlite3
 
-# Archivos subidos por usuarios
-media/
 
 # Archivos estáticos generados
 staticfiles/
