@@ -24,7 +24,7 @@ def registrarse(request):
 ##### CRUD modelo videojuego #####
 
 #Create
-@permission_required('juegos.add_videojuego', raise_exception=True)
+@login_required
 def crearJuego(request):
     if request.method == 'POST':
         form = VideoJuegoForm(request.POST,request.FILES)
@@ -36,13 +36,13 @@ def crearJuego(request):
     return render (request, 'juegos/crear_juego.html', {'form': form})
 
 #Read
-@login_required
+
 def juegos(request):
     juegos = VideoJuego.objects.all()
     return render (request, 'juegos/juegos.html', {'juegos': juegos})
 
 #Update
-@permission_required('juegos.change_videojuego', raise_exception=True)
+@login_required
 def editarJuego(request, id):
     juego = get_object_or_404(VideoJuego, id=id)
 
@@ -56,7 +56,7 @@ def editarJuego(request, id):
     return render (request, 'juegos/editar_juego.html', {'form': form})
 
 #Delete
-@permission_required('juegos.delete_videojuego', raise_exception=True)
+@login_required
 def borrarJuego(request, id):
     juego = get_object_or_404(VideoJuego, id=id)
 
