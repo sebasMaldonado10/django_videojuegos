@@ -8,19 +8,13 @@ from django.contrib.auth import login
 
 
 def inicio(request):
-    # 1. Agregados recientemente: Ordenamos por ID de forma descendente y tomamos 5
-    recientes = VideoJuego.objects.filter(activo=True).order_by('-id')[:5]
-    
-    # 2. Juegos destacados: Contamos cuántas reseñas tiene cada juego.
-    # CORRECCIÓN: Cambié 'resenas' por 'resena' (o podés usar 'resena_set' si da error)
+    recientes = VideoJuego.objects.filter(activo=True).order_by('-id')[:3]
     destacados = VideoJuego.objects.filter(activo=True).annotate(
         num_resenas=Count('resenas') 
-    ).order_by('-num_resenas')[:5]
+    ).order_by('-num_resenas')[:3]
     
-    # 3. Categorías para la barra horizontal
     categorias = Categoria.objects.all()
 
-    # CORRECCIÓN: Saqué el `:` que estaba adentro de 'juegos_destacados:'
     context = {
         'juegos_recientes': recientes,
         'juegos_destacados': destacados, 
