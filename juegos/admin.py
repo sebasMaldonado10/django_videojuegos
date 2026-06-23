@@ -21,13 +21,11 @@ class UsuarioPersonalizadoAdmin(UserAdmin):
     list_filter = ("is_staff", "is_active", "groups")
     ordering = ("username",)
 
-
 @admin.register(Categoria)
 class CategoriaAdmin(admin.ModelAdmin):
     list_display = ("nombre",)
     search_fields = ("nombre",)
     ordering = ("nombre",)
-
 
 @admin.register(ModoJuego)
 class ModoJuegoAdmin(admin.ModelAdmin):
@@ -71,4 +69,3 @@ class ResenaAdmin(admin.ModelAdmin):
     search_fields = ("usuario__username", "videojuego__titulo", "comentario")
     list_filter = ("videojuego", "usuario")
     ordering = ("videojuego",)
-
