@@ -11,27 +11,27 @@ class UsuarioPersonalizado(AbstractUser):
 
     def __str__(self):
         return self.username
-
+    
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return f"categoria {self.nombre}"
+        return f"{self.nombre}"
 
 class ModoJuego(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return f"modo de juego {self.nombre}"
+        return f"{self.nombre}"
     
 class ModeloNegocio(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return f"modelo de negocio {self.nombre}"
+        return f"{self.nombre}"
     
 class Desarrolladora(models.Model):
     nombre = models.CharField(max_length=100)
@@ -39,7 +39,7 @@ class Desarrolladora(models.Model):
     descripcion = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return f"desarrolladora {self.nombre}"
+        return f"{self.nombre}"
 
 class VideoJuego(models.Model):
     titulo = models.CharField(max_length=150)
@@ -70,7 +70,7 @@ class VideoJuego(models.Model):
     activo = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"videojuego {self.titulo}"
+        return f"{self.titulo}"
 
 
 class Resena(models.Model):
@@ -89,5 +89,5 @@ class Resena(models.Model):
     activo = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"resena {self.usuario.username}"
+        return f"{self.usuario.username}"
 
