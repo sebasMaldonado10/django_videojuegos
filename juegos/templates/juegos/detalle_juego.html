@@ -28,7 +28,7 @@
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-zinc-800 pb-4 mb-4 gap-2">
                     <h1 class="text-4xl font-extrabold text-white tracking-tight">{{ juego.titulo }}</h1>
                     <span class="px-3 py-1 bg-zinc-800 text-xs text-gray-400 rounded-md border border-zinc-700 whitespace-nowrap">
-                        📅 <b>Lanzamiento:</b> {{ juego.fecha_de_lanzamiento }}
+                        <b>Lanzamiento:</b> {{ juego.fecha_de_lanzamiento }}
                     </span>
                 </div>
 
@@ -43,25 +43,25 @@
                 <div class="grid grid-cols-2 gap-3 mb-6">
                     <div class="p-3 bg-zinc-900/50 rounded-lg border border-zinc-800">
                         <span class="block text-xs text-gray-500">Categoría</span>
-                        <span class="text-sm font-semibold text-white">📂 {{ juego.categoria }}</span>
+                        <span class="text-sm font-semibold text-white"> {{ juego.categoria }}</span>
                     </div>
                     <div class="p-3 bg-zinc-900/50 rounded-lg border border-zinc-800">
                         <span class="block text-xs text-gray-500">Modo de Juego</span>
-                        <span class="text-sm font-semibold text-[#3C9B93]">🎮 {{ juego.modo_juego }}</span>
+                        <span class="text-sm font-semibold text-[#3C9B93]"> {{ juego.modo_juego }}</span>
                     </div>
                     <div class="p-3 bg-zinc-900/50 rounded-lg border border-zinc-800">
                         <span class="block text-xs text-gray-500">Modelo de Negocio</span>
-                        <span class="text-sm font-semibold text-[#86C94D]">💰 {{ juego.modelo_negocio }}</span>
+                        <span class="text-sm font-semibold text-[#86C94D]"> {{ juego.modelo_negocio }}</span>
                     </div>
                     <div class="p-3 bg-zinc-900/50 rounded-lg border border-zinc-800">
                         <span class="block text-xs text-gray-500">Desarrolladora</span>
-                        <span class="text-sm font-semibold text-gray-300">🏢 {{ juego.desarrolladora }}</span>
+                        <span class="text-sm font-semibold text-gray-300"> {{ juego.desarrolladora }}</span>
                     </div>
                 </div>
 
                 <div class="flex gap-3 justify-end pt-4 border-t border-zinc-800/60">
                     <a href="{% url 'editarJuego' juego.id %}" class="px-4 py-2 rounded-lg bg-green-400 text-zinc-900 font-bold hover:bg-green-500 transition text-sm">
-                        Editar Información
+                        Editar
                     </a>
                 </div>
             </div>
@@ -72,10 +72,10 @@
     <section class="max-w-4xl mx-auto">
         <div class="flex justify-between items-center mb-6 border-b border-zinc-800 pb-3">
             <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                🗣️ Reseñas de la Comunidad
+                Reseñas de la Comunidad
             </h2>
             <a href="{% url 'crearResena' %}" class="px-4 py-2 bg-[#86C94D] text-zinc-900 font-bold rounded-lg hover:bg-opacity-90 transition text-sm">
-                + Escribir Reseña
+                Escribir Reseña
             </a>
         </div>
 
@@ -85,12 +85,9 @@
                     <article class="bg-[#060F31] p-5 rounded-xl border border-zinc-800 shadow-md">
                         <div class="flex justify-between items-center mb-3">
                             <div class="flex items-center gap-2">
-                                <div class="w-8 h-8 rounded-full bg-zinc-700 flex items-center justify-center text-white font-bold text-sm">
-                                    {{ resena.usuario.username|slice:":1"|upper }}
-                                </div>
                                 <span class="font-bold text-white text-sm">{{ resena.usuario.username }}</span>
                             </div>
-                            <span class="text-xs text-gray-500">{{ resena.fecha|date:"d M, Y" }}</span>
+                            <span class="text-xs text-gray-500">{{ resena.fecha }}</span>
                         </div>
                         <p class="text-sm text-gray-300 pl-10 leading-relaxed">
                             {{ resena.comentario }}

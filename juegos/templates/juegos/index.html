@@ -15,9 +15,9 @@
 
     <div class="bg-[#060F31] border-y border-zinc-800 py-3 px-10 flex gap-4 overflow-x-auto whitespace-nowrap">
         <span class="text-sm font-semibold text-[#3C9B93] mr-2 self-center">Categorías:</span>
-        {% for cat in categorias %}
+        {% for categoria in categorias %}
             <a href="#" class="px-4 py-1.5 bg-zinc-800 text-sm rounded-full text-white hover:bg-[#3C9B93] transition duration-200">
-                {{ cat.nombre }}
+                {{ categoria.nombre }}
             </a>
         {% endfor %}
     </div>
@@ -26,12 +26,12 @@
         
         <section>
             <h2 class="font-bold text-2xl text-white mb-6 flex items-center gap-2">
-                ⏱️ Últimos Agregados
+                Últimos Agregados
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 {% for juego in juegos_recientes %}
                     {% if juego.activo %}
-                        <div class="bg-[#060F31] rounded-lg p-4 border border-zinc-800 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out hover:border-[#3C9B93] hover:shadow-[0_0_20px_rgba(60,155,147,0.2)] hover:-translate-y-1">
+                        <div class="bg-[#060F31] rounded-lg p-4 border border-zinc-800 flex flex-col justify-between transition-all duration-300 ease-out hover:border-[#3C9B93] hover:shadow-[0_0_20px_rgba(60,155,147,0.2)] hover:-translate-y-1">
                             <div>
                                 {% if juego.imagen %}
                                     <img src="{{ juego.imagen.url }}" class="w-full h-36 object-cover rounded mb-3">
@@ -41,7 +41,7 @@
                                 <h4 class="font-bold text-white text-base truncate">{{ juego.titulo }}</h4>
                                 <p class="text-xs text-gray-400 mt-1 line-clamp-2">{{ juego.descripcion }}</p>
                             </div>
-                            <a href="{% url 'detalle_juego' juego.id %}" class="mt-4 text-center text-xs bg-[#3C9B93] text-zinc-900 font-bold py-2 rounded hover:bg-opacity-80 transition">
+                            <a href="{% url 'detalle_juego' juego.id %}" class="mt-4 text-center text-xs bg-[#3C9B93] text-zinc-900 font-bold py-2 rounded hover:bg-opacity-80 transition cursor-pointer">
                                 Ver Detalles
                             </a>
                         </div>
@@ -54,12 +54,12 @@
 
         <section class="mb-16">
             <h2 class="font-bold text-2xl text-white mb-6 flex items-center gap-2">
-                🔥 Juegos Destacados
+                Juegos Destacados
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 {% for juego in juegos_destacados %}
                     {% if juego.activo %}
-                        <div class="bg-[#060F31] rounded-lg p-4 border border-zinc-800 flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out hover:border-[#86C94D] hover:shadow-[0_0_20px_rgba(134,201,77,0.15)] hover:-translate-y-1">
+                        <div class="bg-[#060F31] rounded-lg p-4 border border-zinc-800 flex flex-col justify-between transition-all duration-300 ease-out hover:border-[#86C94D] hover:shadow-[0_0_20px_rgba(134,201,77,0.15)] hover:-translate-y-1">
                             <div>
                                 {% if juego.imagen %}
                                     <img src="{{ juego.imagen.url }}" class="w-full h-36 object-cover rounded mb-3">
@@ -67,9 +67,9 @@
                                     <div class="w-full h-36 bg-zinc-800 flex items-center justify-center rounded mb-3 text-xs text-gray-500">Sin Imagen</div>
                                 {% endif %}
                                 <h4 class="font-bold text-white text-base truncate">{{ juego.titulo }}</h4>
-                                <p class="text-xs text-[#86C94D] font-semibold mt-1">⭐ {{ juego.num_resenas }} reseñas</p>
+                                <p class="text-xs text-[#86C94D] font-semibold mt-1"> {{ juego.num_resenas }} reseñas</p>
                             </div>
-                            <a href="{% url 'detalle_juego' juego.id %}" class="mt-4 text-center text-xs bg-[#86C94D] text-zinc-900 font-bold py-2 rounded hover:bg-opacity-80 transition">
+                            <a href="{% url 'detalle_juego' juego.id %}" class="mt-4 text-center text-xs bg-[#86C94D] text-zinc-900 font-bold py-2 rounded hover:bg-opacity-80 transition cursor-pointer">
                                 Ver Detalles
                             </a>
                         </div>
