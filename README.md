@@ -22,7 +22,8 @@
 
 ### 🔐 2. Sistema de Autenticación (Login / Registro)
 *Formularios de ingreso y registro para los usuarios del sistema.*
-![Formulario de Login]
+![Formulario de Login](media/readme/login.png)
+![Formulario de Registro](media/readme/register.png)
 
 ### 📋 3. Gestión del Catálogo (CRUD)
 *Demostración de las pantallas para listar, dar de alta, editar y eliminar videojuegos.*
@@ -35,7 +36,8 @@
 
 ### ⚙️ 4. Panel de Administración (Django Admin)
 *Vista del panel de control con filtros laterales, barra de búsqueda y ordenamiento de los modelos configurados.*
-![Panel de Administración]
+![Panel de Administración](media/readme/admin.png)
+![Panel de Administración con filtros](media/readme/admin_filters.png)
 
 ---
 
