@@ -13,7 +13,7 @@
 
 ---
 
-## 📸 El Proyecto en Funcionamiento (Capturas)
+## 📸 El Proyecto en Funcionamiento
 
 ### 🏠 1. Página de Inicio y Navegación
 *Vista principal de la plataforma donde se puede navegar hacia las distintas secciones y el catálogo.*
