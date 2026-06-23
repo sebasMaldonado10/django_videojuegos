@@ -8,34 +8,34 @@
 
 *   **🌐 Navegación Dinámica:** Sistema completo de navegación a través de templates heredados (`base.html`).
 *   **🔐 Autenticación de Usuarios:** Sistema de registro, inicio y cierre de sesión de usuarios (`django.contrib.auth`).
-*   **📝 CRUD Completo:** Gestión total (Crear, Leer, Actualizar, Borrar) para 2 de los modelos principales de la aplicación.
+*   **📝 CRUD Completo:** Gestión total (Crear, Leer, Actualizar, Borrar) para modelos Videojuegos y Reseñas.
 *   **🛡️ Panel de Administración Avanzado:** Control total desde `/admin` con filtros personalizados, búsquedas y ordenamiento de registros.
 
 ---
 
 ## 📸 El Proyecto en Funcionamiento (Capturas)
 
-### 🏠 1. Página de Inicio (Index) y Navegación
+### 🏠 1. Página de Inicio y Navegación
 *Vista principal de la plataforma donde se puede navegar hacia las distintas secciones y el catálogo.*
-
-![Página de Inicio](capturas/inicio.png)
+![Página de Inicio](media/readme/inicio.png)
+![Página de Inicio](media/readme/inicio2.png)
 
 ### 🔐 2. Sistema de Autenticación (Login / Registro)
 *Formularios de ingreso y registro para los usuarios del sistema.*
-
-![Formulario de Login](capturas/login.png)
+![Formulario de Login]
 
 ### 📋 3. Gestión del Catálogo (CRUD)
 *Demostración de las pantallas para listar, dar de alta, editar y eliminar videojuegos.*
+![Listado de Juegos](media/readme/juegos_admin.png)
+![Detalle del Juego](media/readme/detalle_admin.png)
+![Listado de Resenas](media/readme/resenas.png)
 
-![Listado de Juegos](capturas/crud_lista.png)
 *Interfaz de formularios para la creación/edición de registros.*
-![Formulario de Creación](capturas/crud_formulario.png)
+![Formulario de Creación]
 
 ### ⚙️ 4. Panel de Administración (Django Admin)
 *Vista del panel de control con filtros laterales, barra de búsqueda y ordenamiento de los modelos configurados.*
-
-![Panel de Administración](capturas/admin_panel.png)
+![Panel de Administración]
 
 ---
 
@@ -66,7 +66,7 @@ Si querés correr el proyecto en tu máquina, seguí estos pasos:
 ```
 3. **Instalar dependencias y migrar la base de datos:**
 ```bash
-   pip install django
+   pip install requirements.txt
    python manage.py migrate
 ```
 4. **Crear un superusuario (para el panel de admin):**
