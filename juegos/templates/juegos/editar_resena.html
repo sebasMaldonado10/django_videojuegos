@@ -3,16 +3,16 @@
 {% block title %} Editar reseña {% endblock %}
 
 {% block body %}
-    <section class="bg-zinc-300 gap-6 px-10 py-5 flex flex-col justify-center items-center text-center">
+    <section class="text-blue-500 bg-zinc-300 gap-6 px-10 py-5 flex flex-col justify-center items-center text-center">
         <h1 class="font-lg text-xl font-bold py-5">
             Modificar reseña
         </h1>
 
-        <form class="flex flex-col items-start gap-5 border border-black p-5 rounded-lg bg-zinc-400" method="POST">
+        <form class="flex flex-col items-start gap-5 border border-black p-5 rounded-lg bg-zinc-600" method="POST">
             {% csrf_token %}
             {{ form.as_p }}
 
-            <button class="border border-black p-2 rounded-lg bg-zinc-200" type="submit">Guardar cambios</button>
+            <button class="text-blue-500 border border-black p-2 rounded-lg bg-zinc-200" type="submit">Guardar cambios</button>
         </form>
 
     </section>
