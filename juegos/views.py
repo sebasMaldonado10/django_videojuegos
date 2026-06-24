@@ -92,7 +92,7 @@ def borrarJuego(request, id):
 ##### CRUD modelo resena #####
 
 # Create
-@permission_required('juegos.add_resena', raise_exception=True)
+@login_required
 def crearResena(request):
     if request.method == 'POST':
         form = ResenaForm(request.POST)

@@ -58,12 +58,6 @@
                         <span class="text-sm font-semibold text-gray-300"> {{ juego.desarrolladora }}</span>
                     </div>
                 </div>
-
-                <div class="flex gap-3 justify-end pt-4 border-t border-zinc-800/60">
-                    <a href="{% url 'editarJuego' juego.id %}" class="px-4 py-2 rounded-lg bg-green-400 text-zinc-900 font-bold hover:bg-green-500 transition text-sm">
-                        Editar
-                    </a>
-                </div>
             </div>
 
         </div>
@@ -74,9 +68,15 @@
             <h2 class="text-2xl font-bold text-white flex items-center gap-2">
                 Reseñas de la Comunidad
             </h2>
-            <a href="{% url 'crearResena' %}" class="px-4 py-2 bg-[#86C94D] text-zinc-900 font-bold rounded-lg hover:bg-opacity-90 transition text-sm">
-                Escribir Reseña
-            </a>
+            {% if user.is_authenticated %}    
+                <a href="{% url 'crearResena' %}" class="px-4 py-2 bg-[#86C94D] text-zinc-900 font-bold rounded-lg hover:bg-opacity-90 transition text-sm">
+                    Escribir Reseña
+                </a>
+            {% else %}
+                <a href="{% url 'login' %}" class="px-4 py-2 bg-[#86C94D] text-zinc-900 font-bold rounded-lg hover:bg-opacity-90 transition text-sm">
+                    Escribir Reseña
+                </a>
+            {% endif %}
         </div>
 
         <div class="flex flex-col gap-4">
