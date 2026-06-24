@@ -11,16 +11,16 @@
         <article class="flex flex-col">
             {% for resena in resenas %}
                 {% if resena.activo %}
-                    <div class="border border-zinc-400 shadow-lg rounded-lg bg-white p-3 mb-3">
+                    <div class="border border-zinc-400 shadow-lg rounded-lg bg-zinc-600 p-3 mb-3">
                         <p><b>{{ resena.usuario }}</b> - {{ resena.fecha }}</p>
                         <p><b>Juego:</b> {{ resena.videojuego }} </p>
                         <p>{{ resena.comentario }}</p>
                         {% if perms.juegos.change_resena %}
                             <div class="flex gap-3 m-1 justify-end">
-                                <a href="{% url 'editarResena' resena.id %}" class="flex w-fit p-2 rounded-lg bg-zinc-200">
+                                <a href="{% url 'editarResena' resena.id %}" class="text-blue-600 flex w-fit p-2 rounded-lg bg-green-400">
                                 Editar
                                 </a>
-                                <a href="{% url 'borrarResena' resena.id %}" class="flex w-fit p-2 rounded-lg bg-red-200">
+                                <a href="{% url 'borrarResena' resena.id %}" class="flex w-fit p-2 rounded-lg bg-red-400">
                                     Borrar
                                 </a>
                             </div>

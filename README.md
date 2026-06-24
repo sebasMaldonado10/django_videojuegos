@@ -4,6 +4,12 @@
 
 ---
 
+## Integrantes
+
+*  Maldonado, Sebastian
+*  Nadalig, Carla
+*  Urquiza, Mateo
+
 ## 🚀 Funcionalidades Principales
 
 *   **🌐 Navegación Dinámica:** Sistema completo de navegación a través de templates heredados (`base.html`).
@@ -80,3 +86,4 @@ Si querés correr el proyecto en tu máquina, seguí estos pasos:
     python manage.py runserver
 ```
 **Entrá a http://127.0.0.1:8000/ en tu navegador.**
+
